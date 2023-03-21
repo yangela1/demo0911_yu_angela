@@ -115,7 +115,7 @@ function displayCardsDynamically(collection) {
 
     db.collection(collection)
         .orderBy("hike_time", "desc") //sorts by hike time
-        .limit(2) //gets two
+        .limit(3) //gets two
         .get() //the collection called "hikes"
         .then(allHikes => {
             //var i = 1;  //Optional: if you want to have a unique ID for each hike
