@@ -147,6 +147,14 @@ function displayCardsDynamically(collection) {
                 // this line will call a function to save the hikes to the user's document             
                 newcard.querySelector('i').onclick = () => saveBookmark(docID);
 
+                currentUser.get().then(userDoc => {
+                    //get the user name
+                    var bookmarks = userDoc.data().bookmarks;
+                    if (bookmarks.includes(docID)) {
+                       document.getElementById('save-' + docID).innerText = 'bookmark';
+                    }
+              })
+              
                 //Finally done modifying newcard
                 //attach to gallery, Example: "hikes-go-here"
                 document.getElementById(collection + "-go-here").appendChild(newcard);
